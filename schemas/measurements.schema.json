@@ -1,0 +1,44 @@
+{
+  "$comment": "测量层输出结构示意（无真实数值）。测量层只提取客观事实，不做质量判断。",
+  "type": "object",
+  "properties": {
+    "video_id": { "type": "string" },
+    "duration_s": { "type": "number" },
+    "fps": { "type": "number" },
+    "resolution": { "type": "string", "example": "1080x1920" },
+    "shots": {
+      "type": "array",
+      "$comment": "切点 / 镜头时长序列",
+      "items": { "type": "object", "properties": { "t": { "type": "number" }, "dur": { "type": "number" } } }
+    },
+    "beats": {
+      "type": "array",
+      "$comment": "BGM 节拍时间戳 + 切点对齐命中率（真实卡点算法见完整版）",
+      "items": { "type": "number" }
+    },
+    "subtitle": {
+      "type": "object",
+      "$comment": "字幕坐标 / 字号 / 颜色等样式特征",
+      "properties": { "bbox": { "type": "array" }, "style": { "type": "object" } }
+    },
+    "color": {
+      "type": "object",
+      "$comment": "主配色 / 背景色 / ΔE 等",
+      "properties": { "palette": { "type": "array" } }
+    },
+    "speech": {
+      "type": "object",
+      "$comment": "语速、有声占比",
+      "properties": { "rate": { "type": "number" }, "voiced_ratio": { "type": "number" } }
+    },
+    "clean_copy": {
+      "type": "object",
+      "$comment": "清洗后的干净文案，按功能切分（CC 全程驱动清洗，非纯自动）",
+      "properties": {
+        "hook": { "type": "string" },
+        "body": { "type": "string" },
+        "cta": { "type": "string" }
+      }
+    }
+  }
+}

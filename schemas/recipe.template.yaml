@@ -1,0 +1,33 @@
+# 剪辑配方模板（结构示意 · 无真实参数值）
+# 真实配方里每一项都带 [测出/推断] + 置信度，并经样片复现验证。
+# 本文件仅展示「一条配方由哪些维度构成」，所有值留空 / 占位。
+
+genre: ""                 # 赛道名
+content_driven: true      # 有口播/台词/字幕 = true（内容维度权重最高）
+
+# ── 内容层（最高权重，产物是"生成能力"而非常量）──
+content:
+  topic_strategy: ""      # 选题策略（结构示意，模型见完整版）
+  writer: ""              # 文案生成能力（结构示意，模型见完整版）
+  critic: ""              # 文案把关能力（结构示意，模型见完整版）
+
+# ── 工艺层（逆向出常量；以下仅列维度，不给值）──
+craft:
+  shot:
+    durations: []         # 镜头时长规律
+    transition: ""        # 转场类型
+  beat_sync:              # 卡点（真实算法见完整版）
+    enabled: null
+    method: ""
+  subtitle:
+    position: ""          # 字幕坐标 / 样式
+    style: ""
+  color:
+    palette: []           # 配色
+  audio:
+    bgm_profile: ""       # BGM 功能画像（BPM / 情绪），非具体曲目
+  assets:
+    sources: []           # 素材来源类型（截图 / 库存 / AI 生图…）
+
+# ── 资产分离 ──
+assets_registry: []       # 可复用素材能力清单（可行性闸门用）
